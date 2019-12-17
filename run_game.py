@@ -1,5 +1,6 @@
 import requests
 import time
+from os import system
 from bs4 import BeautifulSoup
 from random import randrange
 
@@ -25,8 +26,9 @@ def play_game(word):
             break
 
         guess = input("Enter a guess: ")
+        system("cls")
         if len(guess) > 1 or not guess.isalpha():
-            print("Your guess is invalid.\nYou must guess a number.")
+            print("Your guess is invalid.\nYou must guess a letter.")
         elif guess.lower() in word:
             correct.append(guess[0].lower())
             print(guess, "was correct")
